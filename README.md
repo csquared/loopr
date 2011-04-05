@@ -26,7 +26,21 @@ If you have an itch, scratch it.
 <br/>
 *Circuit for two buttons (those are 10K ohm resistors)*
 
-Nevertheless, thanks to the awesome folks at the [Austin Hackerspace](http:/www.atxhackerspace.org) and MicroController Monday I was able to get my Arduino-based Loop pedal off the ground... or maybe closer to the ground!  So much thanks to Danny and Tim for showing me the way.
+## To Run:
+
+- open arduino project in /arduino and upload to board
+- run > ruby listener/run.rb &lt;tty of arduino&gt;
+- button 1 starts and stops recording a loop
+- button 2 starts and stops the loop
+
+## To Do
+
+- get this in a project box
+- hook it up to my guitar and ROCK OUT!
+
+
+Thanks to the awesome folks at the [Austin Hackerspace](http:/www.atxhackerspace.org) and MicroController Monday I was able to get my Arduino-based Loop pedal off the ground... or maybe closer to the ground!  So much thanks to Danny and Tim for showing me the way.
 
 Or as they like to say:
 ### Don't let the software guys touch the hardware!!!! 
+
