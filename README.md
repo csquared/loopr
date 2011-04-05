@@ -13,6 +13,7 @@ If you have an itch, scratch it.
 ## Hardware:
 
 <img src="http://www.chriscontinanza.com/images/loop_pedal_buttons.jpg" />
+<br/>
 *Circuit for two buttons (those are 10K ohm resistors)*
 
 ## Software:
