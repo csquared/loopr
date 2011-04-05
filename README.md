@@ -1,4 +1,4 @@
-#looper
+#LoopR
 
 ## An Arduino-Based Loop Pedal
 
