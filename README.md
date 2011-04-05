@@ -28,8 +28,8 @@ If you have an itch, scratch it.
 
 ## To Run:
 
-- open arduino project in /arduino and upload to board
-- run > ruby listener/run.rb &lt;tty of arduino&gt;
+- open arduino project (Buttons.pde) in /arduino/Buttons and upload to board
+- run <code>$ ruby listener/run.rb &lt;tty of arduino&gt; </code>
 - button 1 starts and stops recording a loop
 - button 2 starts and stops the loop
 
