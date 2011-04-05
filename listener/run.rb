@@ -21,7 +21,12 @@ class Pedal
     @loop_button = Button.new
   end
 
-  def run!(tty = ARGV[0])
+  def run!(tty = nil)
+    unless tty 
+      puts "need to specify tty of arduino (usually /dev/ttyUSB*)"
+      exit 1
+    end
+
     puts "Opening #{tty}"
     @serial = SerialPort.open(tty, 9600)
 
@@ -32,20 +37,20 @@ class Pedal
       @record_button.toggle! if cmd == '1' 
       @loop_button.toggle! if cmd == '2'
 
-      if @record_button.on? && !@sox && !@loop 
-	puts "Recording"
-        @sox = fork{ exec("rec loop.wav") } 
-	puts "@sox: \n #{@sox.inspect}"
+      if @record_button.on? && !@record && !@loop 
+        puts "Recording"
+        @record = fork{ exec("rec loop.wav") }
       end
 
-      if @record_button.off? && @sox
-	puts "Killing"
-        Process.kill 'TERM', @sox
-	@sox = nil
+      if @record_button.off? && @record
+	      puts "Killing"
+        Process.kill 'TERM', @record
+	      @record = nil
       end
 
-      if @loop_button.on? && !@loop
-	puts "Looping"
+      if @loop_button.on? && !@loop && !@record
+        puts "Looping"
+        # let SoX do the looping - we're going to kill it anyways
         @loop = fork { exec("play loop.wav repeat 100000") } 
       end
 
@@ -58,4 +63,4 @@ class Pedal
 end
 
 
-Pedal.new.run! if __FILE__ == $0
+Pedal.new.run!(ARGV[0]) if __FILE__ == $0
